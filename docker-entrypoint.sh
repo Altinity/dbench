@@ -2,11 +2,11 @@
 set -e
 
 if [ -z $DBENCH_MOUNTPOINT ]; then
-    DBENCH_MOUNTPOINT=/tmp
+    DBENCH_MOUNTPOINT=/data
 fi
 
 if [ -z $FIO_SIZE ]; then
-    FIO_SIZE=2G
+    FIO_SIZE=1G
 fi
 
 if [ -z $FIO_OFFSET_INCREMENT ]; then
@@ -90,9 +90,7 @@ if [ "$1" = 'fio' ]; then
 
     echo All tests complete.
     echo
-    echo ==================
-    echo = Dbench Summary =
-    echo ==================
+    echo "### Dbench Summary BEGIN ###"
     echo "Random Read/Write IOPS: $READ_IOPS_VAL/$WRITE_IOPS_VAL. BW: $READ_BW_VAL / $WRITE_BW_VAL"
     if [ -z $DBENCH_QUICK ] || [ "$DBENCH_QUICK" == "no" ]; then
         echo "Average Latency (usec) Read/Write: $READ_LATENCY_VAL/$WRITE_LATENCY_VAL"
@@ -101,6 +99,7 @@ if [ "$1" = 'fio' ]; then
     fi
 
     rm $DBENCH_MOUNTPOINT/fiotest
+    echo "### Dbench Summary END ###"
     exit 0
 fi
 

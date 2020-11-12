@@ -1,38 +1,34 @@
-kind: PersistentVolumeClaim
+---
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: dbench-pv-claim
+  name: dbench-pv-claim-${STORAGE_CLASS}
 spec:
-  storageClassName: ssd
-  # storageClassName: gp2
-  # storageClassName: local-storage
-  # storageClassName: ibmc-block-bronze
-  # storageClassName: ibmc-block-silver
-  # storageClassName: ibmc-block-gold
+  storageClassName: ${STORAGE_CLASS}
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1000Gi
+      storage: ${STORAGE_SIZE}
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: dbench
+  name: dbench-${STORAGE_CLASS}
 spec:
   template:
     spec:
       containers:
       - name: dbench
-        image: logdna/dbench:latest
+        image: ${DOCKER_IMAGE}
         imagePullPolicy: Always
         env:
           - name: DBENCH_MOUNTPOINT
             value: /data
+          - name: FIO_SIZE
+            value: ${FIO_SIZE}
           # - name: DBENCH_QUICK
           #   value: "yes"
-          # - name: FIO_SIZE
-          #   value: 1G
           # - name: FIO_OFFSET_INCREMENT
           #   value: 256M
           # - name: FIO_DIRECT
@@ -44,5 +40,5 @@ spec:
       volumes:
       - name: dbench-pv
         persistentVolumeClaim:
-          claimName: dbench-pv-claim
+          claimName: dbench-pv-claim-${STORAGE_CLASS}
   backoffLimit: 4

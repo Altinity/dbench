@@ -1,9 +1,11 @@
-FROM dmonakhov/alpine-fio
+FROM alpine:3.12
 
-MAINTAINER Lee Liu <lee@logdna.com>
+MAINTAINER Eugene Klimov <eklimov@altinity.com>
 
-VOLUME /tmp
-WORKDIR /tmp
+RUN apk --no-cache add fio
+
+VOLUME /data
+WORKDIR /data
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["fio"]

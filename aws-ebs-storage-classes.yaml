@@ -1,0 +1,59 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp2
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"       
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  fsType: ext4
+  type: gp2
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: io1
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  fsType: ext4
+  type: io1
+  iopsPerGB: "32"
+# @TODO io2 doesn't support on EKS yet https://github.com/kubernetes-sigs/aws-ebs-csi-driver/issues/556
+# ---
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   XXXX: io2
+# provisioner: kubernetes.io/aws-ebs
+# reclaimPolicy: Delete
+# volumeBindingMode: WaitForFirstConsumer
+# parameters:
+#   fsType: ext4
+#   type: io2
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: st1
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  fsType: ext4
+  type: st1
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: sc1
+provisioner: kubernetes.io/aws-ebs
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+parameters:
+  fsType: ext4
+  type: sc1

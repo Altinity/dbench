@@ -1,0 +1,308 @@
+Working dir: /data
+
+Testing Read IOPS...
+read_iops: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=64
+fio-3.20
+Starting 1 process
+read_iops: Laying out IO file (1 file / 256000MiB)
+
+read_iops: (groupid=0, jobs=1): err= 0: pid=10: Fri Nov  6 16:18:17 2020
+  read: IOPS=2997, BW=11.7MiB/s (12.3MB/s)(176MiB/15030msec)
+   bw (  KiB/s): min=11666, max=12296, per=100.00%, avg=12012.33, stdev=110.77, samples=30
+   iops        : min= 2916, max= 3074, avg=3003.07, stdev=27.75, samples=30
+  cpu          : usr=0.77%, sys=1.98%, ctx=12580, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=45058,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=11.7MiB/s (12.3MB/s), 11.7MiB/s-11.7MiB/s (12.3MB/s-12.3MB/s), io=176MiB (185MB), run=15030-15030msec
+
+Disk stats (read/write):
+  nvme2n1: ios=53798/2, merge=0/1, ticks=536444/20, in_queue=521552, util=99.51%
+
+
+Testing Write IOPS...
+write_iops: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=64
+fio-3.20
+Starting 1 process
+
+write_iops: (groupid=0, jobs=1): err= 0: pid=20: Fri Nov  6 16:18:36 2020
+  write: IOPS=2997, BW=11.7MiB/s (12.3MB/s)(176MiB/15030msec); 0 zone resets
+   bw (  KiB/s): min=11800, max=12216, per=100.00%, avg=12014.13, stdev=83.21, samples=30
+   iops        : min= 2950, max= 3054, avg=3003.53, stdev=20.80, samples=30
+  cpu          : usr=0.87%, sys=1.96%, ctx=12690, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=0,45053,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+  WRITE: bw=11.7MiB/s (12.3MB/s), 11.7MiB/s-11.7MiB/s (12.3MB/s-12.3MB/s), io=176MiB (185MB), run=15030-15030msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/53679, merge=0/3, ticks=0/535612, in_queue=519496, util=99.52%
+
+
+Testing Read Bandwidth...
+read_bw: (g=0): rw=randread, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128KiB-128KiB, ioengine=libaio, iodepth=64
+fio-3.20
+Starting 1 process
+
+read_bw: (groupid=0, jobs=1): err= 0: pid=30: Fri Nov  6 16:18:54 2020
+  read: IOPS=2001, BW=251MiB/s (263MB/s)(3765MiB/15022msec)
+   bw (  KiB/s): min=251136, max=262912, per=100.00%, avg=256776.83, stdev=2071.28, samples=29
+   iops        : min= 1962, max= 2054, avg=2006.07, stdev=16.18, samples=29
+  cpu          : usr=0.33%, sys=2.59%, ctx=8328, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=30060,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=251MiB/s (263MB/s), 251MiB/s-251MiB/s (263MB/s-263MB/s), io=3765MiB (3948MB), run=15022-15022msec
+
+Disk stats (read/write):
+  nvme2n1: ios=35852/2, merge=0/1, ticks=542100/28, in_queue=526260, util=99.55%
+
+
+Testing Write Bandwidth...
+write_bw: (g=0): rw=randwrite, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128KiB-128KiB, ioengine=libaio, iodepth=64
+fio-3.20
+Starting 1 process
+
+write_bw: (groupid=0, jobs=1): err= 0: pid=40: Fri Nov  6 16:19:12 2020
+  write: IOPS=2001, BW=251MiB/s (263MB/s)(3765MiB/15021msec); 0 zone resets
+   bw (  KiB/s): min=236032, max=272896, per=100.00%, avg=256759.21, stdev=5794.02, samples=29
+   iops        : min= 1844, max= 2132, avg=2005.93, stdev=45.27, samples=29
+  cpu          : usr=1.59%, sys=2.46%, ctx=8310, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=0,30059,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+  WRITE: bw=251MiB/s (263MB/s), 251MiB/s-251MiB/s (263MB/s-263MB/s), io=3765MiB (3948MB), run=15021-15021msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/35844, merge=0/3, ticks=0/545196, in_queue=531436, util=99.53%
+
+
+Testing Read Latency...
+read_latency: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=4
+fio-3.20
+Starting 1 process
+
+read_latency: (groupid=0, jobs=1): err= 0: pid=50: Fri Nov  6 16:19:31 2020
+  read: IOPS=2999, BW=11.7MiB/s (12.3MB/s)(176MiB/15002msec)
+    slat (usec): min=2, max=4498, avg= 6.74, stdev=30.99
+    clat (usec): min=66, max=47352, avg=1324.87, stdev=799.18
+     lat (usec): min=250, max=47363, avg=1331.75, stdev=799.44
+    clat percentiles (usec):
+     |  1.00th=[  408],  5.00th=[  523], 10.00th=[  627], 20.00th=[  873],
+     | 30.00th=[ 1012], 40.00th=[ 1139], 50.00th=[ 1237], 60.00th=[ 1319],
+     | 70.00th=[ 1385], 80.00th=[ 1500], 90.00th=[ 2040], 95.00th=[ 2704],
+     | 99.00th=[ 4015], 99.50th=[ 4555], 99.90th=[ 6259], 99.95th=[ 8225],
+     | 99.99th=[20055]
+   bw (  KiB/s): min=11984, max=12040, per=100.00%, avg=12014.62, stdev=11.53, samples=29
+   iops        : min= 2996, max= 3010, avg=3003.66, stdev= 2.88, samples=29
+  lat (usec)   : 100=0.01%, 250=0.01%, 500=3.98%, 750=10.52%, 1000=14.38%
+  lat (msec)   : 2=60.70%, 4=9.40%, 10=0.99%, 20=0.02%, 50=0.01%
+  cpu          : usr=1.19%, sys=2.79%, ctx=43028, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=45000,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=4
+
+Run status group 0 (all jobs):
+   READ: bw=11.7MiB/s (12.3MB/s), 11.7MiB/s-11.7MiB/s (12.3MB/s-12.3MB/s), io=176MiB (184MB), run=15002-15002msec
+
+Disk stats (read/write):
+  nvme2n1: ios=53672/2, merge=0/1, ticks=66440/4, in_queue=50272, util=99.08%
+
+
+Testing Write Latency...
+write_latency: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=4
+fio-3.20
+Starting 1 process
+
+write_latency: (groupid=0, jobs=1): err= 0: pid=60: Fri Nov  6 16:19:49 2020
+  write: IOPS=2999, BW=11.7MiB/s (12.3MB/s)(176MiB/15001msec); 0 zone resets
+    slat (usec): min=2, max=5313, avg= 8.05, stdev=49.10
+    clat (usec): min=32, max=17633, avg=1323.49, stdev=618.25
+     lat (usec): min=474, max=17638, avg=1331.70, stdev=619.25
+    clat percentiles (usec):
+     |  1.00th=[  603],  5.00th=[  709], 10.00th=[  824], 20.00th=[ 1037],
+     | 30.00th=[ 1156], 40.00th=[ 1237], 50.00th=[ 1287], 60.00th=[ 1352],
+     | 70.00th=[ 1401], 80.00th=[ 1483], 90.00th=[ 1631], 95.00th=[ 1827],
+     | 99.00th=[ 3884], 99.50th=[ 4817], 99.90th=[ 8586], 99.95th=[10290],
+     | 99.99th=[15401]
+   bw (  KiB/s): min=11770, max=12239, per=100.00%, avg=12013.48, stdev=89.52, samples=29
+   iops        : min= 2942, max= 3059, avg=3003.28, stdev=22.37, samples=29
+  lat (usec)   : 50=0.01%, 100=0.01%, 250=0.01%, 500=0.04%, 750=7.03%
+  lat (usec)   : 1000=10.98%
+  lat (msec)   : 2=78.57%, 4=2.44%, 10=0.87%, 20=0.06%
+  cpu          : usr=1.17%, sys=3.13%, ctx=42771, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,44995,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=4
+
+Run status group 0 (all jobs):
+  WRITE: bw=11.7MiB/s (12.3MB/s), 11.7MiB/s-11.7MiB/s (12.3MB/s-12.3MB/s), io=176MiB (184MB), run=15001-15001msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/53677, merge=0/3, ticks=0/66276, in_queue=50152, util=98.78%
+
+
+Testing Read Sequential Speed...
+read_seq: (g=0): rw=read, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=libaio, iodepth=16
+...
+fio-3.20
+Starting 4 threads
+read_seq: Laying out IO file (1 file / 257500MiB)
+
+read_seq: (groupid=0, jobs=1): err= 0: pid=70: Fri Nov  6 16:44:47 2020
+  read: IOPS=22, BW=23.9MiB/s (25.1MB/s)(381MiB/15937msec)
+   bw (  KiB/s): min=12288, max=143360, per=22.60%, avg=23316.26, stdev=22969.67, samples=31
+   iops        : min=   12, max=  140, avg=22.65, stdev=22.47, samples=31
+  cpu          : usr=0.04%, sys=0.19%, ctx=476, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.7%, 8=0.0%, 16=0.3%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=366,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+read_seq: (groupid=0, jobs=1): err= 0: pid=71: Fri Nov  6 16:44:47 2020
+  read: IOPS=28, BW=29.2MiB/s (30.6MB/s)(445MiB/15233msec)
+   bw (  KiB/s): min=12288, max=135168, per=28.31%, avg=29202.07, stdev=22570.94, samples=30
+   iops        : min=   12, max=  132, avg=28.37, stdev=22.10, samples=30
+  cpu          : usr=0.07%, sys=0.21%, ctx=533, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.8%, 8=0.0%, 16=0.2%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=430,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+read_seq: (groupid=0, jobs=1): err= 0: pid=72: Fri Nov  6 16:44:47 2020
+  read: IOPS=26, BW=27.1MiB/s (28.5MB/s)(445MiB/16399msec)
+   bw (  KiB/s): min=12288, max=167936, per=25.62%, avg=26425.72, stdev=27118.21, samples=32
+   iops        : min=   12, max=  164, avg=25.66, stdev=26.52, samples=32
+  cpu          : usr=0.04%, sys=0.21%, ctx=552, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.8%, 8=0.0%, 16=0.2%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=430,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+read_seq: (groupid=0, jobs=1): err= 0: pid=73: Fri Nov  6 16:44:47 2020
+  read: IOPS=22, BW=23.5MiB/s (24.6MB/s)(381MiB/16240msec)
+   bw (  KiB/s): min=10240, max=143360, per=22.45%, avg=23158.31, stdev=22801.69, samples=32
+   iops        : min=   10, max=  140, avg=22.44, stdev=22.29, samples=32
+  cpu          : usr=0.00%, sys=0.23%, ctx=488, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.7%, 8=0.0%, 16=0.3%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=366,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+   READ: bw=101MiB/s (106MB/s), 23.5MiB/s-29.2MiB/s (24.6MB/s-30.6MB/s), io=1652MiB (1732MB), run=15233-16399msec
+
+Disk stats (read/write):
+  nvme2n1: ios=6569/2, merge=0/1, ticks=845364/336, in_queue=833168, util=83.20%
+
+
+Testing Write Sequential Speed...
+write_seq: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=libaio, iodepth=16
+...
+fio-3.20
+Starting 4 threads
+
+write_seq: (groupid=0, jobs=1): err= 0: pid=83: Fri Nov  6 16:45:06 2020
+  write: IOPS=18, BW=19.8MiB/s (20.8MB/s)(305MiB/15401msec); 0 zone resets
+   bw (  KiB/s): min=12288, max=28672, per=22.17%, avg=19451.20, stdev=3599.61, samples=30
+   iops        : min=   12, max=   28, avg=18.87, stdev= 3.59, samples=30
+  cpu          : usr=0.08%, sys=0.26%, ctx=505, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.7%, 8=0.0%, 16=0.3%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,290,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+write_seq: (groupid=0, jobs=1): err= 0: pid=84: Fri Nov  6 16:45:06 2020
+  write: IOPS=20, BW=21.7MiB/s (22.7MB/s)(330MiB/15221msec); 0 zone resets
+   bw (  KiB/s): min=10240, max=34816, per=24.43%, avg=21431.07, stdev=6216.66, samples=30
+   iops        : min=   10, max=   34, avg=20.83, stdev= 6.05, samples=30
+  cpu          : usr=0.12%, sys=0.28%, ctx=551, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.7%, 8=0.0%, 16=0.3%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,315,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+write_seq: (groupid=0, jobs=1): err= 0: pid=85: Fri Nov  6 16:45:06 2020
+  write: IOPS=19, BW=20.5MiB/s (21.5MB/s)(319MiB/15558msec); 0 zone resets
+   bw (  KiB/s): min=14336, max=26624, per=22.89%, avg=20078.71, stdev=3829.85, samples=31
+   iops        : min=   14, max=   26, avg=19.48, stdev= 3.79, samples=31
+  cpu          : usr=0.02%, sys=0.33%, ctx=540, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.7%, 8=0.0%, 16=0.3%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,304,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+write_seq: (groupid=0, jobs=1): err= 0: pid=86: Fri Nov  6 16:45:06 2020
+  write: IOPS=24, BW=25.0MiB/s (26.3MB/s)(394MiB/15733msec); 0 zone resets
+   bw (  KiB/s): min=16351, max=36864, per=27.93%, avg=24506.35, stdev=6270.88, samples=31
+   iops        : min=   15, max=   36, avg=23.84, stdev= 6.22, samples=31
+  cpu          : usr=0.17%, sys=0.27%, ctx=637, majf=0, minf=0
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=99.7%, 8=0.0%, 16=0.3%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,379,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+  WRITE: bw=85.7MiB/s (89.8MB/s), 19.8MiB/s-25.0MiB/s (20.8MB/s-26.3MB/s), io=1348MiB (1413MB), run=15221-15733msec
+
+Disk stats (read/write):
+  nvme2n1: ios=0/6335, merge=0/3, ticks=0/959084, in_queue=944168, util=99.50%
+
+
+Testing Read/Write Mixed...
+rw_mix: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=libaio, iodepth=64
+fio-3.20
+Starting 1 process
+
+rw_mix: (groupid=0, jobs=1): err= 0: pid=96: Fri Nov  6 16:45:24 2020
+  read: IOPS=2245, BW=8994KiB/s (9210kB/s)(132MiB/15031msec)
+   bw (  KiB/s): min= 8712, max= 9184, per=100.00%, avg=9000.53, stdev=124.29, samples=30
+   iops        : min= 2178, max= 2296, avg=2250.07, stdev=31.06, samples=30
+  write: IOPS=752, BW=3014KiB/s (3086kB/s)(44.2MiB/15031msec); 0 zone resets
+   bw (  KiB/s): min= 2784, max= 3304, per=100.00%, avg=3014.67, stdev=127.54, samples=30
+   iops        : min=  696, max=  826, avg=753.67, stdev=31.88, samples=30
+  cpu          : usr=0.69%, sys=2.52%, ctx=12575, majf=0, minf=58
+  IO depths    : 1=0.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=100.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.1%, >=64=0.0%
+     issued rwts: total=33750,11309,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=64
+
+Run status group 0 (all jobs):
+   READ: bw=8994KiB/s (9210kB/s), 8994KiB/s-8994KiB/s (9210kB/s-9210kB/s), io=132MiB (138MB), run=15031-15031msec
+  WRITE: bw=3014KiB/s (3086kB/s), 3014KiB/s-3014KiB/s (3086kB/s-3086kB/s), io=44.2MiB (46.4MB), run=15031-15031msec
+
+Disk stats (read/write):
+  nvme2n1: ios=40231/13445, merge=0/4, ticks=401520/134460, in_queue=520220, util=99.50%
+
+
+All tests complete.
+
+### Dbench Summary BEGIN ###
+Random Read/Write IOPS: 2997/2997. BW: 251MiB/s / 251MiB/s
+Average Latency (usec) Read/Write: 1331.75/1331.70
+Sequential Read/Write: 101MiB/s / 85.7MiB/s
+Mixed Random Read/Write IOPS: 2245/752
+### Dbench Summary END ###
