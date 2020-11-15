@@ -11,6 +11,20 @@ volumeBindingMode: WaitForFirstConsumer
 parameters:
   fsType: ext4
   type: gp2
+allowVolumeExpansion: true
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: gp2-encrypted
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  encrypted: 'true'
+  fsType: ext4
+  type: gp2
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -35,6 +49,7 @@ parameters:
 # parameters:
 #   fsType: ext4
 #   type: io2
+allowVolumeExpansion: true
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -46,6 +61,7 @@ volumeBindingMode: WaitForFirstConsumer
 parameters:
   fsType: ext4
   type: st1
+allowVolumeExpansion: true
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -57,3 +73,4 @@ volumeBindingMode: WaitForFirstConsumer
 parameters:
   fsType: ext4
   type: sc1
+allowVolumeExpansion: true

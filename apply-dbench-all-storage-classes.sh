@@ -57,3 +57,18 @@ for STORAGE_CLASS in $ALL_STORAGE_CLASSES; do
     done
   done
 done
+
+# please install https://github.com/chmln/sd
+sd '\.,' ',' $CSV_FILE
+sd '(\d+)\.(\d+)k' '$1$2 00' $CSV_FILE
+sd '(\d+) (00)' '$1$2' $CSV_FILE
+# sd '(\d{1})(\d{3})KiB' '$1.$2' $CSV_FILE
+
+grep 'KiB' $CSV_FILE | while read line
+do
+  echo "$line" | grep -E "[[:digit:]]+KiB" -o | while read FROM_KiB
+  do
+    TO_MiB=$(echo $FROM_KiB | numfmt --from=iec-i --suffix=B --format="%.3f" --to-unit=Mi | sd 'B' '')
+    sd $FROM_KiB $TO_MiB $CSV_FILE
+  done
+done
