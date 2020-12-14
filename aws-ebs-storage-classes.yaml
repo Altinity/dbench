@@ -74,3 +74,33 @@ parameters:
   fsType: ext4
   type: sc1
 allowVolumeExpansion: true
+# GP3 storage classes require https://github.com/kubernetes-sigs/aws-ebs-csi-driver v0.8.0+
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3
+parameters:
+  fsType: ext4
+  type: gp3
+  iops: "16000"
+  throughput: "1000"
+provisioner: ebs.csi.aws.com
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3-encrypted
+parameters:
+  encrypted: "true"
+  fsType: ext4
+  type: gp3
+  iops: "16000"
+  throughput: "1000"
+provisioner: ebs.csi.aws.com
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
